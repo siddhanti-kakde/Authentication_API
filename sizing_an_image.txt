@@ -1,0 +1,134 @@
+<body>
+    <div class="bg-container pt-5 pb-5">
+        <div class="container">
+            <div class="row">
+                <div class="col-12 col-md-6 d-flex flex-column justify-content-center text-center text-md-left">
+                    <h1 class="sizing-an-image-heading">Sizing an Image</h1>
+                    <p class="sizing-an-image-description">Increase the width of an image by clicking the plus button and decrease by clicking the Minus button. For every action, the image increases or decreases by 5px.</p>
+                </div>
+                <div class="col-12 col-md-6 text-center">
+                    <p class="warning-message" id="warningMessage"></p>
+                    <img src="https://d1tgh8fmlzexmh.cloudfront.net/ccbp-dynamic-webapps/sizing-an-image-img.png" alt="image" id="image">
+                    <p class="image-width">Width: <span id="imageWidth"></span></p>
+                </div>
+                <div class="col-12">
+                    <div class="buttons-container d-flex flex-row shadow m-auto">
+                        <button class="button" id="decrementButton" onClick="sizeDecrease()">-</button>
+                        <hr class="hr-line" />
+                        <span class="width-in-px">5px</span>
+                        <hr class="hr-line" />
+                        <button class="button" id="incrementButton" onClick="sizeIncrease()">+</button>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</body>
+
+
+#####################################################################################################################################
+
+.bg-container {
+    background-color: #f5f7fa;
+}
+
+.sizing-an-image-heading {
+    color: #1f2933;
+    font-family: "Roboto";
+    font-size: 48px;
+    font-weight: 500;
+}
+
+.sizing-an-image-description {
+    color: #1f2933;
+    font-family: "Roboto";
+    font-size: 18px;
+    font-weight: 500;
+}
+
+.warning-message {
+    color: #cf1124;
+    font-family: "Roboto";
+    font-size: 24px;
+    font-weight: 500;
+}
+
+.image-width {
+    color: #323f4b;
+    font-family: "Roboto";
+    font-size: 16px;
+    font-weight: 500;
+    margin-top: 10px;
+}
+
+.buttons-container {
+    background-color: white;
+    width: 140px;
+}
+
+.button {
+    color: #323f4b;
+    background-color: white;
+    font-family: "Roboto";
+    font-size: 20px;
+    font-weight: 700;
+    width: 35%;
+    height: 50px;
+    border-width: 0;
+}
+
+.hr-line {
+    background-color: black;
+    width: 1px;
+    height: 20px;
+}
+
+.width-in-px {
+    color: #323f4b;
+    font-family: "Roboto";
+    font-size: 20px;
+    font-weight: 700;
+    margin: 10px;
+}
+
+
+##########################################################################################################################
+
+
+let imageElement = document.getElementById("image");
+let warningMessageElement = document.getElementById("warningMessage");
+let imageWidthElement = document.getElementById("imageWidth");
+
+let originalImageWidth = 200;
+let maxImageWidth = 300;
+let minImageWidth = 100;
+
+imageElement.style.width = originalImageWidth + "px";
+imageWidthElement.textContent = originalImageWidth + "px";
+
+function sizeDecrease() {
+    if (originalImageWidth <= minImageWidth) {
+        warningMessageElement.textContent = "Can't Visible. Increase the size of the image.";
+
+    } else {
+        originalImageWidth = originalImageWidth - 5;
+        let updatedImageWidth = originalImageWidth;
+        warningMessageElement.textContent = "";
+        imageElement.style.width = updatedImageWidth + "px";
+        imageWidthElement.textContent = updatedImageWidth + "px";
+    }
+}
+
+function sizeIncrease() {
+    if (originalImageWidth >= maxImageWidth) {
+        warningMessageElement.textContent = "Too Big. Decrease the size of the image.";
+
+    } else {
+        originalImageWidth = originalImageWidth + 5;
+        let updatedImageWidth = originalImageWidth;
+        warningMessageElement.textContent = "";
+        imageElement.style.width = updatedImageWidth + "px";
+        imageWidthElement.textContent = updatedImageWidth + "px";
+    }
+
+}

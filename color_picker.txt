@@ -1,0 +1,104 @@
+<body>
+    <div id="colorPickerContainer">
+        <div>
+            <h1 class="mainHeading">Color Picker</h1>
+            <div class="buttonContainer">
+                <button id="button1" onclick="button1()">#e0e0e0</button>
+                <button id="button2" onclick="button2()">#6fcf97</button>
+                <button id="button3" onclick="button3()">#56ccf2</button>
+                <button id="button4" onclick="button4()">#bb6bd9</button>
+            </div>
+            <p class="heading">Background Color : <span class="hexaCodeText" id="selectedColorHexCode">#fffff</span></p>
+            <p>Try clicking on one of the colors above to change the background color of this page!</p>
+        </div>
+    </div>
+</body>
+
+###################################################################################################################
+
+#colorPickerContainer {
+    height: 100vh;
+    text-align: center;
+    padding-top: 80px;
+    background-color: white;
+
+}
+
+.mainHeading {
+    font-weight: bold;
+    font-family: "Roboto";
+    font-size: 35px;
+}
+
+.buttonContainer {
+    margin-top: 15px;
+    margin-bottom: 10px;
+}
+
+#button1 {
+    height: 65px;
+    width: 76px;
+    font-size: 13px;
+    border-radius: 10px;
+    background-color: #e0e0e0;
+}
+
+#button2 {
+    height: 65px;
+    width: 76px;
+    font-size: 13px;
+    border-radius: 10px;
+    background-color: #6fcf97;
+}
+
+#button3 {
+    height: 65px;
+    width: 76px;
+    font-size: 13px;
+    border-radius: 10px;
+    background-color: #56ccf2;
+}
+
+#button4 {
+    height: 65px;
+    width: 76px;
+    font-size: 13px;
+    border-radius: 10px;
+    background-color: #bb6bd9;
+}
+
+.heading {
+    font-family: "open Sans";
+    font-weight: bold;
+    font-size: 20px;
+    color: white;
+    background-color: #222222;
+    padding: 10px;
+    border-radius: 8px;
+}
+
+#selectedColorHexCode {
+    color: #49a6e9;
+}
+
+######################################################################################################################
+
+function button1() {
+    document.getElementById("colorPickerContainer").style.backgroundColor = "#e0e0e0";
+    document.getElementById("selectedColorHexCode").textContent = "#e0e0e0";
+}
+
+function button2() {
+    document.getElementById("colorPickerContainer").style.backgroundColor = "#6fcf97";
+    document.getElementById("selectedColorHexCode").textContent = "#6fcf97";
+}
+
+function button3() {
+    document.getElementById("colorPickerContainer").style.backgroundColor = "#56ccf2";
+    document.getElementById("selectedColorHexCode").textContent = "#56ccf2";
+}
+
+function button4() {
+    document.getElementById("colorPickerContainer").style.backgroundColor = "#bb6bd9";
+    document.getElementById("selectedColorHexCode").textContent = "#bb6bd9";
+}

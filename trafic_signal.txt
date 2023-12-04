@@ -1,0 +1,135 @@
+
+
+<body>
+    <div class="bgContainer text-center pt-2">
+        <h1>Traffic Light</h1>
+        <div class="d-flex flex-row justify-content-center mt-5">
+            <div class="d-flex flex-column">
+                <button id="stopButton" onclick="stopColorChange()">Stop</button>
+                <button id="readyButton" onclick="readyColorChange()">Ready</button>
+                <button id="goButton" onclick="goColorChange()">Go</button>
+            </div>
+            <div class="lightContainer">
+                <div id="stopLight"></div>
+                <div id="readyLight"></div>
+                <div id="goLight"></div>
+            </div>
+        </div>
+    </div>
+</body>
+
+##########################################################################################################################
+
+
+.bgContainer {
+    background-color: #86d2f2;
+    height: 100vh;
+}
+
+h1 {
+    color: #1f1d41;
+    font-family: "Roboto";
+    font-weight: bold;
+}
+
+#stopButton {
+    font-family: "Roboto";
+    font-size: 14px;
+    background-color: #1f1d41;
+    padding: 8px;
+    width: 58px;
+    border-radius: 8px;
+    color: white;
+    border-width: 0px;
+    font-weight: lighter;
+    margin-top: 45px;
+}
+
+#readyButton {
+    font-family: "Roboto";
+    font-size: 14px;
+    background-color: #1f1d41;
+    padding: 8px;
+    width: 58px;
+    border-radius: 8px;
+    color: white;
+    border-width: 0px;
+    font-weight: lighter;
+    margin-top: 30px;
+}
+
+#goButton {
+    font-family: "Roboto";
+    font-size: 14px;
+    background-color: #1f1d41;
+    padding: 8px;
+    width: 58px;
+    border-radius: 8px;
+    color: white;
+    border-width: 0px;
+    font-weight: lighter;
+    margin-top: 30px;
+}
+
+.lightContainer {
+    background-color: #1f1d41;
+    padding: 20px;
+    width: 18vh;
+    border-radius: 32px;
+    padding-bottom: 40px;
+    padding-top: 40px;
+    margin-left: 22px;
+}
+
+#stopLight {
+    margin-bottom: 15px;
+    padding: 25px;
+    background-color: #4b5069;
+    width: 40px;
+    border-radius: 25px;
+}
+
+#readyLight {
+    padding: 25px;
+    background-color: #4b5069;
+    width: 40px;
+    border-radius: 25px;
+    margin-bottom: 15px;
+}
+
+#goLight {
+    padding: 25px;
+    background-color: #4b5069;
+    width: 40px;
+    border-radius: 25px;
+    margin-bottom: 15px;
+}
+
+################################################################################################################
+
+function stopColorChange() {
+    document.getElementById("stopButton").style.backgroundColor = "#cf1124";
+    document.getElementById("stopLight").style.backgroundColor = "#cf1124";
+    document.getElementById("readyButton").style.backgroundColor = "#1f1d41";
+    document.getElementById("readyLight").style.backgroundColor = "#4b5069";
+    document.getElementById("goButton").style.backgroundColor = "#1f1d41";
+    document.getElementById("goLight").style.backgroundColor = "#4b5069";
+}
+
+function readyColorChange() {
+    document.getElementById("readyButton").style.backgroundColor = "#f7c948";
+    document.getElementById("readyLight").style.backgroundColor = "#f7c948";
+    document.getElementById("stopButton").style.backgroundColor = "#1f1d41";
+    document.getElementById("stopLight").style.backgroundColor = "#4b5069";
+    document.getElementById("goButton").style.backgroundColor = "#1f1d41";
+    document.getElementById("goLight").style.backgroundColor = "#4b5069";
+}
+
+function goColorChange() {
+    document.getElementById("goButton").style.backgroundColor = "#199473";
+    document.getElementById("goLight").style.backgroundColor = "#199473";
+    document.getElementById("readyButton").style.backgroundColor = "#1f1d41";
+    document.getElementById("readyLight").style.backgroundColor = "#4b5069";
+    document.getElementById("stopButton").style.backgroundColor = "#1f1d41";
+    document.getElementById("stopLight").style.backgroundColor = "#4b5069";
+}

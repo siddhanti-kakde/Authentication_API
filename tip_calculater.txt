@@ -1,0 +1,105 @@
+<body>
+    <div class="tip-calculator-container pb-5">
+        <img class="tip-calculator-image" src="https://d1tgh8fmlzexmh.cloudfront.net/ccbp-dynamic-webapps/tip-calculator-img.png" />
+        <h1 class="tip-calculator-heading text-center mt-4 mb-4">Tip Calculator</h1>
+        <div class="container">
+            <div class="row">
+                <div class="col-12 col-md-6 mb-4">
+                    <p class="input-label mb-2">BILL AMOUNT</p>
+                    <input type="text" class="user-input" id="billAmount" />
+                </div>
+                <div class="col-12 col-md-6 mb-4">
+                    <p class="input-label mb-2">PERCENTAGE TIP</p>
+                    <input type="text" class="user-input" id="percentageTip" />
+                </div>
+                <div class="col-12 col-md-6 mb-4">
+                    <p class="input-label mb-2">TIP AMOUNT</p>
+                    <input type="text" class="user-input" id="tipAmount" />
+                </div>
+                <div class="col-12 col-md-6 mb-4">
+                    <p class="input-label mb-2">TOTAL</p>
+                    <input type="text" class="user-input" id="totalAmount" />
+                </div>
+                <div class="col-12 text-center mt-4">
+                    <button class="btn btn-info calculate-tip-button" id="calculateButton" onClick="calculatedBill()" onClick="calculatedTip()">CALCULATE</button>
+                    <p class="error-message text-center" id="errorMessage"></p>
+                </div>
+            </div>
+        </div>
+    </div>
+
+
+#################################################################################################################################
+
+
+.tip-calculator-container {
+    background-color: #f9fbfe;
+}
+
+.tip-calculator-image {
+    width: 100%;
+}
+
+.tip-calculator-heading {
+    color: #264fa2;
+    font-family: "Roboto";
+    font-size: 48px;
+    font-weight: 500;
+}
+
+.input-label {
+    color: #7b8794;
+    font-family: "Roboto";
+    font-size: 12px;
+    font-weight: bold;
+}
+
+.user-input {
+    height: 40px;
+    width: 100%;
+    border-style: solid;
+    border-width: 1px;
+    border-color: #cbd2d9;
+    border-radius: 4px;
+    padding-left: 12px;
+}
+
+.calculate-tip-button {
+    background-color: #264fa2;
+    color: white;
+    font-family: "Roboto";
+    font-size: 18px;
+    border-radius: 4px;
+}
+
+.error-message {
+    color: #cf1124;
+    font-family: "Roboto";
+    font-size: 14px;
+    font-weight: 500;
+    margin-top: 10px;
+}
+
+
+###############################################################################################################################
+
+let billAmountElement = document.getElementById("billAmount");
+let percentageTipElement = document.getElementById("percentageTip");
+
+
+function calculatedBill() {
+    if (billAmountElement.value === "") {
+        document.getElementById("errorMessage").textContent = "Please Enter a Valid Input.";
+    } else if (percentageTipElement.value === "") {
+        document.getElementById("errorMessage").textContent = "Please Enter a Valid Input.";
+    } else {
+        document.getElementById("errorMessage").textContent = "";
+        let billAmountInput = parseInt(billAmountElement.value);
+        let percentageTipInput = parseInt(percentageTipElement.value);
+        let calculatedTip = (percentageTipInput / 100) * billAmountInput;
+        document.getElementById("tipAmount").value = calculatedTip;
+        let totalBill = calculatedTip + billAmountInput;
+        document.getElementById("totalAmount").value = totalBill;
+
+    }
+}

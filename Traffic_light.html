@@ -1,0 +1,142 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Traffic Light</title>
+
+    <style>
+        .bgContainer {
+            background-color: #86d2f2;
+            height: 100vh;
+            display: flex;
+            justify-content: center;
+        }
+ 
+        h1 {
+            color: #1f1d41;
+            font-family: "Poppins";
+            font-weight: bold;
+        }
+
+        #stopButton {
+            font-family: "Roboto";
+            font-size: 14px;
+            background-color: #1f1d41;
+            padding: 8px;
+            width: 60px;
+            border-radius: 8px;
+            color: white;
+            border-width: 0px;
+            font-weight: lighter;
+            margin-top: 45px;
+        }
+
+        #readyButton {
+            font-family: "Roboto";
+            font-size: 14px;
+            background-color: #1f1d41;
+            padding: 8px;
+            width: 60px;
+            border-radius: 8px;
+            color: white;
+            border-width: 0px;
+            font-weight: lighter;
+            margin-top: 30px;
+        }
+
+        #goButton {
+            font-family: "Roboto";
+            font-size: 14px;
+            background-color: #1f1d41;
+            padding: 8px;
+            width: 60px;
+            border-radius: 8px;
+            color: white;
+            border-width: 0px;
+            font-weight: lighter;
+            margin-top: 30px;
+        }
+
+        .lightContainer {
+            background-color: #1f1d41;
+            padding: 20px;
+            width: 8vh;
+            border-radius: 32px;
+            padding-bottom: 40px;
+            padding-top: 40px;
+            margin-left: 30px;
+        }
+
+        #stopLight {
+            margin-bottom: 15px;
+            padding: 20px;
+            background-color: #4b5069;
+            width: 10px;
+            border-radius: 25px;
+        }
+
+        #readyLight {
+            padding: 20px;
+            background-color: #4b5069;
+            width: 10px;
+            border-radius: 25px;
+            margin-bottom: 15px;
+        }
+
+        #goLight {
+            padding: 20px;
+            background-color: #4b5069;
+            width: 10px;
+            border-radius: 25px;
+            margin-bottom: 15px;
+        }
+    </style>
+</head>
+<body>
+    <div class="bgContainer text-center pt-2">
+        <h1>Traffic Light</h1> 
+        <div class="d-flex flex-row justify-content-center mt-5">
+            <div class="d-flex flex-column"><br><br><br><br>
+                <button id="stopButton" onclick="stopColorChange()">STOP</button>
+                <button id="readyButton" onclick="readyColorChange()">READY</button>
+                <button id="goButton" onclick="goColorChange()">GO</button>
+            </div> <br><br>
+            <div class="lightContainer">
+                <div id="stopLight"></div>
+                <div id="readyLight"></div>
+                <div id="goLight"></div>
+            </div>
+        </div>
+    </div>
+
+    <script>
+        function stopColorChange() {
+            document.getElementById("stopButton").style.backgroundColor = "#cf1124";
+            document.getElementById("stopLight").style.backgroundColor = "#cf1124";
+            document.getElementById("readyButton").style.backgroundColor = "#1f1d41";
+            document.getElementById("readyLight").style.backgroundColor = "#4b5069";
+            document.getElementById("goButton").style.backgroundColor = "#1f1d41";
+            document.getElementById("goLight").style.backgroundColor = "#4b5069";
+        }
+
+        function readyColorChange() {
+            document.getElementById("readyButton").style.backgroundColor = "#f7c948";
+            document.getElementById("readyLight").style.backgroundColor = "#f7c948";
+            document.getElementById("stopButton").style.backgroundColor = "#1f1d41";
+            document.getElementById("stopLight").style.backgroundColor = "#4b5069";
+            document.getElementById("goButton").style.backgroundColor = "#1f1d41";
+            document.getElementById("goLight").style.backgroundColor = "#4b5069";
+        }
+
+        function goColorChange() {
+            document.getElementById("goButton").style.backgroundColor = "#199473";
+            document.getElementById("goLight").style.backgroundColor = "#199473";
+            document.getElementById("readyButton").style.backgroundColor = "#1f1d41";
+            document.getElementById("readyLight").style.backgroundColor = "#4b5069";
+            document.getElementById("stopButton").style.backgroundColor = "#1f1d41";
+            document.getElementById("stopLight").style.backgroundColor = "#4b5069";
+        }
+    </script>
+</body>
+</html> 

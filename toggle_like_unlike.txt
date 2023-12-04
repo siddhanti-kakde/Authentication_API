@@ -1,0 +1,64 @@
+<body>
+    <div>
+        <img src="https://d1tgh8fmlzexmh.cloudfront.net/ccbp-dynamic-webapps/white-puppy-img.png" class="puppy-image" id="puppyImage" />
+        <div class="d-flex flex-row justify-content-center mt-4">
+            <i class="fa fa-thumbs-up like-icon " aria-hidden="true" id="likeIcon"></i>
+            <button class="like-button ml-2" onclick="onClickLikeButton()" id="likeButton">
+                Like
+            </button>
+        </div>
+    </div>
+</body>
+
+
+#########################################################################################################################
+
+.puppy-image {
+    width: 100%;
+}
+
+.like-icon {
+    color: #cbd2d9;
+    font-size: 40px;
+}
+
+.like-button {
+    color: #9aa5b1;
+    background-color: #cbd2d9;
+    font-family: "Roboto";
+    font-size: 14px;
+    width: 100px;
+    height: 40px;
+    border-width: 0;
+    border-radius: 8px;
+}
+
+
+###########################################################################################################################
+
+let puppyImageElement = document.getElementById("puppyImage");
+let likeIconElement = document.getElementById("likeIcon");
+let likeButtonElement = document.getElementById("likeButton");
+let isImageLiked = false;
+
+function onClickLikeButton() {
+    if (isImageLiked === false) {
+        puppyImageElement.src = "https://d1tgh8fmlzexmh.cloudfront.net/ccbp-dynamic-webapps/white-puppy-liked-img.png";
+        likeIconElement.style.color = "#0967d2";
+        likeButtonElement.style.backgroundColor = "#0967d2";
+        likeButtonElement.style.color = "#ffffff";
+        isImageLiked = true;
+    } else {
+        puppyImageElement.src = "https://d1tgh8fmlzexmh.cloudfront.net/ccbp-dynamic-webapps/white-puppy-img.png";
+        likeIconElement.style.color = "#9aa5b1";
+        likeButtonElement.style.backgroundColor = "#9aa5b1";
+        likeButtonElement.style.color = "#cbd2d9";
+        isImageLiked = false;
+
+    }
+
+
+
+
+
+}

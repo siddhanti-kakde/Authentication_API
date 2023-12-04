@@ -1,0 +1,128 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Guess Game</title>
+
+    <!-- CSS -->
+    <style>
+    @import url("https://fonts.googleapis.com/css2?family=Bree+Serif&family=Caveat:wght@400;700&family=Lobster&family=Monoton&family=Open+Sans:ital,wght@0,400;0,700;1,400;1,700&family=Playfair+Display+SC:ital,wght@0,400;0,700;1,700&family=Playfair+Display:ital,wght@0,400;0,700;1,700&family=Roboto:ital,wght@0,400;0,700;1,400;1,700&family=Source+Sans+Pro:ital,wght@0,400;0,700;1,700&family=Work+Sans:ital,wght@0,400;0,700;1,700&display=swap");
+
+    .bg-container {
+        background-color: #246db6;
+        height: 100vh;
+    }
+
+    .guess-game-img {
+        width: 100%;
+    }
+
+    .game-description {
+        color: #971423;
+        font-family: "Poppins";
+        font-size: 30px;
+        font-weight: 500;
+        margin-top: 20px;
+    }
+
+    .guess-bg-container {   
+        background-color: #246db6;
+        padding-top: 30px;
+        padding-bottom: 30px;
+    }
+
+    .guess-heading {
+        color: beige;
+        font-family: "Roboto";
+        font-size: 34px;
+        font-weight: bold;
+    }
+
+    .guess-number-image {
+        width: 50px;
+    }
+
+    .user-input {
+        text-align: center;
+        color: #1f2933;
+        font-family: "Roboto";
+        font-size: 30px;
+        font-weight: 500;
+        width: 300px;
+        padding: 10px;
+    }
+
+    .game-result {
+        color: rgb(99, 171, 137);
+        font-family: "Roboto";
+        font-size: 24px;
+        font-weight: 500;
+        padding: 10px;
+    }
+
+    .check-guess {
+        width: 170px;
+        border-radius: 5px;
+        margin: 20px;
+        padding: 10px;
+    }
+
+    </style>
+</head>
+
+<body>
+    <div class="container-fluid bg-container">
+        <div class="row bg-white">
+            <div class="col-12 col-md-6 m-auto bg-white pt-5 pb-5">
+                <img class="guess-game-img"
+                src="https://d1tgh8fmlzexmh.cloudfront.net/ccbp-dynamic-webapps/guess-game-img.png"/>
+                <p class="text-center game-description">Find out the right number between 1 to 100</p>
+            </div>
+        </div>
+        <div class="row">
+            <div class="col-12 guess-bg-container text-center">
+                <h1 class="guess-heading">Guess The Number
+                    <img class="guess-number-image"
+                    src="https://d1tgh8fmlzexmh.cloudfront.net/ccbp-dynamic-webapps/guess-number-img.png"
+                    />
+                </h1>
+                <input type="text" class="user-input" id="userInput" />
+                <div>
+                    <button class="btn btn-info check-guess" onclick="checkGuess()"> Check </button>
+                </div>
+                <p class="game-result" id="gameResult"></p>
+            </div>
+        </div>
+    </div>
+    
+    <!-- JS -->
+    <script>
+        let gameResultE1 = document.getElementById("gameResult");
+        let userInputE1 = document.getElementById("userInput");
+        let randomNum = Math.ceil(Math.random()*100);
+
+        console.log(randomNum);
+
+        function checkGuess(){
+            let userValue = parseInt(userInputE1.value);
+            if(userValue === randomNum){
+                gameResultE1.textContent = "Congratulations! You guessed it right :)";
+                gameResultE1.style.backgroundColor = "green";
+            }
+            else if(userValue > randomNum){
+                gameResultE1.textContent = "Number is large!";
+                gameResultE1.style.backgroundColor = "red";
+            }
+            else if(userValue < randomNum){
+                gameResultE1.textContent = "Number too small!";
+                gameResultE1.style.backgroundColor = "red";
+            }
+            else{
+                gameResultE1.textContent = "Please enter another number!";               
+                gameResultE1.style.backgroundColor = "red";
+            }
+        }
+    </script>
+</body>
+</html>
