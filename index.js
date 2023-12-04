@@ -66,7 +66,6 @@ app.get("/author",async(req,res)=>{ // for author
 })
 // first save the code-> start the server(in terminal,"node index.js")-> goto Thunder Client-> type the request "http://localhost:3005/author"-> then press "SEND" to get the data on the server
 
-
 //Post book API
 app.post("/books/", async(req,res)=>{
     const bookDetails = req.body;
@@ -161,4 +160,14 @@ app.get("/books/:bookId/",async(req,res)=>{
         `SELECT * FROM book WHERE book_id = ${bookId};`;
     const booksArray = await db.all(getAuthorQuery);
     res.send(booksArray);
+})
+
+
+// Get Author Books API  
+app.get("/authors/:authorId/", async (req,res) => {
+    const{authorId} = req.params;
+    const getAuthorBooksQuery = `
+        SELECT * FROM author WHERE author_id = ${authorId};`;
+    const authorArray = await db.all(getAuthorBooksQuery);
+    res.send(authorArray);
 })
