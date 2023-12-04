@@ -62,7 +62,7 @@ app.post("/login/",async(req,res)=>{
     const dbUser = await db.get(selectUserQuery);
     if(dbUser === undefined) {
         res.status(400);
-        res.send("Invlaid User");
+        res.send("Invalid User");
     }
     else {
         const isPasswordMatched = await bcrypt.compare(password, dbUser.password);
