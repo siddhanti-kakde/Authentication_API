@@ -3,6 +3,7 @@ const {open} = require("sqlite");
 const sqlite3 = require("sqlite3");
 const path = require("path");
 const bcrypt = require("bcrypt");
+const jwt = require("jsonwebtoken");
 
 const app = express();
 app.use(express.json());
@@ -67,7 +68,11 @@ app.post("/login/",async(req,res)=>{
     else {
         const isPasswordMatched = await bcrypt.compare(password, dbUser.password);
         if(isPasswordMatched === true) {
-            res.send("Login Success");
+            const payload = {
+                username: username,
+            };
+            const jwtToken = jwt.sign(payload, "MY_SECRET_TOKEN");
+            res.send({jwtToken});
         }
         else {
             res.status(400);
