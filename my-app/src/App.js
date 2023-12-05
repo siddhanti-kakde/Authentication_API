@@ -1,10 +1,10 @@
-import Home from "./component/Home";
+import Home from "./component/Home"
 
-const App = () => {
+const App = () => (
     <div>
         <Home/>
-        <h1>4.0 Technologies</h1>
-        <p>React.js Getting Started.</p>
+        <h2 align="center">4.0 Technologies</h2>
+        <p align="center">React.js Getting Started.</p>
     </div>
-}
+)
 export default App;
